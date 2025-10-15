@@ -6,13 +6,10 @@
     </linearGradient>
   </defs>
   <rect width="100%" height="100%" fill="url(#grad03)"/>
-  <!-- Cigarra central -->
   <ellipse cx="360" cy="260" rx="70" ry="34" fill="#8FD050"/>
   <circle cx="340" cy="245" r="14" fill="#2B2B2B"/>
-  <!-- Formiga ao lado suando -->
   <rect x="520" y="260" width="80" height="100" rx="12" fill="#4B2E1A"/>
   <circle cx="492" cy="240" r="16" fill="#2C2C2C"/>
-  <!-- Balão de fala -->
   <path d="M320,190 q40,-40 120,0" fill="none" stroke="#1F2937" stroke-width="3"/>
   <text x="340" y="180" font-family="Arial" font-size="20" fill="#1F2937">Cante!</text>
   <text x="420" y="205" font-family="Arial" font-size="20" fill="#1F2937">Notas musicais</text>
