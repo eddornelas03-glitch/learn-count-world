@@ -8,25 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 48 100% 98%;
-    --foreground: 260 50% 25%;
+    /* Dark theme palette */
+    --background: 220 12% 6%;        /* very dark navy */
+    --foreground: 210 8% 96%;       /* near-white for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 260 50% 25%;
+    --card: 220 12% 10%;            /* slightly lighter than page background */
+    --card-foreground: 210 8% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 50% 25%;
+    --popover: 220 12% 10%;
+    --popover-foreground: 210 8% 96%;
 
     --primary: 265 85% 58%;
     --primary-foreground: 0 0% 100%;
     
     --primary-glow: 265 85% 75%;
 
-    --secondary: 35 100% 58%;
-    --secondary-foreground: 260 50% 25%;
+    --secondary: 35 95% 60%;
+    --secondary-foreground: 210 8% 96%;
 
-    --muted: 48 60% 95%;
-    --muted-foreground: 260 20% 50%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 210 10% 70%;
 
     --accent: 340 85% 65%;
     --accent-foreground: 0 0% 100%;
@@ -37,36 +38,36 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 48 40% 88%;
-    --input: 48 40% 92%;
+    --border: 220 12% 14%;
+    --input: 220 12% 10%;
     --ring: 265 85% 58%;
 
     --radius: 1rem;
     
     --gradient-primary: linear-gradient(135deg, hsl(265 85% 58%), hsl(300 85% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(35 100% 58%), hsl(20 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(35 95% 60%), hsl(20 95% 65%));
     --gradient-success: linear-gradient(135deg, hsl(142 76% 45%), hsl(162 76% 55%));
-    --gradient-bg: linear-gradient(180deg, hsl(48 100% 98%), hsl(200 60% 97%));
+    --gradient-bg: linear-gradient(180deg, hsl(220 12% 6%), hsl(260 10% 10%));
     
-    --shadow-soft: 0 4px 20px hsla(265, 85%, 58%, 0.15);
-    --shadow-card: 0 8px 30px hsla(265, 85%, 58%, 0.12);
-    --shadow-glow: 0 0 30px hsla(265, 85%, 75%, 0.3);
+    --shadow-soft: 0 6px 24px hsla(265, 85%, 60%, 0.18);
+    --shadow-card: 0 10px 36px hsla(265, 85%, 60%, 0.14);
+    --shadow-glow: 0 0 36px hsla(265, 85%, 75%, 0.22);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 220 10% 8%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 210 10% 96%;
 
     --sidebar-primary: 240 5.9% 10%;
 
     --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 220 10% 14%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 210 10% 96%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 220 12% 14%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
@@ -111,6 +112,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     background: var(--gradient-bg);
     font-family: 'Quicksand', 'Nunito', system-ui, -apple-system, sans-serif;
+    color: hsl(var(--foreground));
   }
   
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
