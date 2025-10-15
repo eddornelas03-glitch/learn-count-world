@@ -106,8 +106,11 @@ const ReadingStory = () => {
 
         <Card className="p-6 mb-6">
           <div className="prose prose-invert max-w-none text-left">
-            <p>{story.content}</p>
-            {/* Simple separation for readability */}
+            {story.content.map((paragraph, idx) => (
+              <p key={idx} className="mb-4">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </Card>
 
