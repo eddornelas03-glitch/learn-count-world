@@ -21,7 +21,7 @@ const difficultyMap: Record<string, "Fácil" | "Médio" | "Difícil"> = {
 };
 
 const Reading = () => {
-  const { progress, completeStory } = useProgress();
+  const { progress } = useProgress();
   const navigate = useNavigate();
 
   // Determine user difficulty from localStorage (set by Index)
@@ -56,8 +56,7 @@ const Reading = () => {
     [selectedCategory, userDifficulty]
   );
 
-  const handleStart = (storyId: number, xp: number) => {
-    // navigate to story detail
+  const handleStart = (storyId: number) => {
     navigate(`/reading/story/${storyId}`);
   };
 
@@ -134,9 +133,20 @@ const Reading = () => {
           {stories.map((story) => {
             const isCompleted = progress.completedStories.includes(story.id);
 
+            const onCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                navigate(`/reading/story/${story.id}`);
+              }
+            };
+
             return (
               <Card
                 key={story.id}
+                onClick={() => navigate(`/reading/story/${story.id}`)}
+                onKeyDown={onCardKeyDown}
+                role="button"
+                tabIndex={0}
                 className={`p-6 hover:shadow-glow transition-smooth cursor-pointer border-2 animate-scale-in group ${
                   isCompleted ? "border-success bg-success/5" : "border-border hover:border-primary"
                 }`}
@@ -175,14 +185,19 @@ const Reading = () => {
                     <Button
                       variant={isCompleted ? "outline" : "gradient"}
                       className="flex-1"
-                      onClick={() => handleStart(story.id, story.xp)}
+                      onClick={(e) => {
+                        // Prevent the card's onClick from triggering twice and navigate explicitly
+                        e.stopPropagation();
+                        handleStart(story.id);
+                      }}
                       disabled={false}
                     >
                       {isCompleted ? "✓ Completado" : "Começar Leitura"}
                     </Button>
                     <Button
                       variant="ghost"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         toast(`Duração: ${story.duration} • ${story.xp} XP • Nível: ${story.difficulty}`);
                       }}
                     >
