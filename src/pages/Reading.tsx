@@ -7,52 +7,59 @@ import { ProgressBar } from "@/components/ProgressBar";
 import { useProgress } from "@/contexts/ProgressContext";
 import { toast } from "sonner";
 import readingImage from "@/assets/reading-books.png";
+import { stories as allStories } from "@/data/stories";
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const categoriesOrder = ["Fábulas", "Contos Clássicos", "Contos"];
+
+const difficultyMap: Record<string, "Fácil" | "Médio" | "Difícil"> = {
+  easy: "Fácil",
+  medium: "Médio",
+  hard: "Difícil",
+  "very-hard": "Difícil",
+};
 
 const Reading = () => {
   const { progress, completeStory } = useProgress();
+  const navigate = useNavigate();
 
-  const handleCompleteStory = (storyId: number, xpReward: number) => {
-    completeStory(storyId, xpReward);
-    toast.success(`🎉 Parabéns! Você ganhou ${xpReward} XP!`);
+  // Determine user difficulty from localStorage (set by Index)
+  const [userDifficulty, setUserDifficulty] = useState<"Fácil" | "Médio" | "Difícil">(
+    () => {
+      const stored = localStorage.getItem("userDifficulty");
+      if (!stored) return "Fácil";
+      return difficultyMap[stored] ?? "Fácil";
+    }
+  );
+
+  useEffect(() => {
+    const stored = localStorage.getItem("userDifficulty");
+    if (stored && difficultyMap[stored]) {
+      setUserDifficulty(difficultyMap[stored]);
+    }
+  }, []);
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(categoriesOrder[0]);
+
+  // Build categories list based on available stories but keep our order
+  const categories = useMemo(() => {
+    const present = new Set(allStories.map((s) => s.category));
+    return categoriesOrder.filter((c) => present.has(c));
+  }, []);
+
+  const stories = useMemo(
+    () =>
+      allStories.filter(
+        (s) => s.category === selectedCategory && s.difficulty === userDifficulty
+      ),
+    [selectedCategory, userDifficulty]
+  );
+
+  const handleStart = (storyId: number, xp: number) => {
+    // navigate to story detail
+    navigate(`/reading/story/${storyId}`);
   };
-  const stories = [
-    {
-      id: 1,
-      title: "A Cigarra e a Formiga",
-      category: "Fábulas",
-      duration: "5 min",
-      xp: 50,
-      stars: 3,
-      completed: false,
-    },
-    {
-      id: 2,
-      title: "Chapeuzinho Vermelho",
-      category: "Contos Clássicos",
-      duration: "8 min",
-      xp: 75,
-      stars: 3,
-      completed: false,
-    },
-    {
-      id: 3,
-      title: "Os Três Porquinhos",
-      category: "Contos",
-      duration: "6 min",
-      xp: 60,
-      stars: 3,
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "A Lebre e a Tartaruga",
-      category: "Fábulas",
-      duration: "4 min",
-      xp: 40,
-      stars: 3,
-      completed: false,
-    },
-  ];
 
   return (
     <div className="min-h-screen pb-20 md:pb-8 md:pt-20">
@@ -70,6 +77,9 @@ const Reading = () => {
               <p className="text-muted-foreground font-body">
                 Explore histórias mágicas e aprenda se divertindo!
               </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Nível selecionado: <strong>{userDifficulty}</strong>
+              </p>
             </div>
           </div>
           <Mascot message="Vamos ler juntos!" />
@@ -80,11 +90,50 @@ const Reading = () => {
           <ProgressBar currentXP={progress.xp} requiredXP={500} level={progress.level} />
         </div>
 
+        {/* Categories */}
+        <div className="mb-6">
+          <div className="flex flex-wrap gap-3">
+            {categories.map((cat) => {
+              const active = cat === selectedCategory;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-full font-medium text-sm transition-smooth ${
+                    active
+                      ? "gradient-primary text-white shadow-soft"
+                      : "text-muted-foreground hover:bg-card/50"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Stories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {stories.length === 0 && (
+            <div className="col-span-full text-center text-muted-foreground p-6">
+              Não há histórias neste nível para a categoria selecionada.
+              <div className="mt-2">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    toast("Tente alterar o nível na página inicial para ver outras histórias.");
+                    navigate("/");
+                  }}
+                >
+                  Voltar para selecionar nível
+                </Button>
+              </div>
+            </div>
+          )}
+
           {stories.map((story) => {
             const isCompleted = progress.completedStories.includes(story.id);
-            
+
             return (
               <Card
                 key={story.id}
@@ -122,14 +171,24 @@ const Reading = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    variant={isCompleted ? "outline" : "gradient"} 
-                    className="w-full"
-                    onClick={() => !isCompleted && handleCompleteStory(story.id, story.xp)}
-                    disabled={isCompleted}
-                  >
-                    {isCompleted ? "✓ Completado" : "Começar Leitura"}
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      variant={isCompleted ? "outline" : "gradient"}
+                      className="flex-1"
+                      onClick={() => handleStart(story.id, story.xp)}
+                      disabled={false}
+                    >
+                      {isCompleted ? "✓ Completado" : "Começar Leitura"}
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        toast(`Duração: ${story.duration} • ${story.xp} XP • Nível: ${story.difficulty}`);
+                      }}
+                    >
+                      Detalhes
+                    </Button>
+                  </div>
                 </div>
               </Card>
             );

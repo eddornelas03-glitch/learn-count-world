@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProgressProvider } from "@/contexts/ProgressContext";
 import Index from "./pages/Index";
 import Reading from "./pages/Reading";
+import ReadingStory from "./pages/ReadingStory";
 import Math from "./pages/Math";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/reading" element={<Reading />} />
+            <Route path="/reading/story/:id" element={<ReadingStory />} />
             <Route path="/math" element={<Math />} />
             <Route path="/profile" element={<Profile />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
