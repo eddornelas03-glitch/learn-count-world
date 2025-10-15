@@ -104,23 +104,51 @@ const ReadingStory = () => {
           </div>
         </div>
 
-        <Card className="p-6 mb-6">
-          <div className="prose prose-invert max-w-none text-left">
-            {story.content.map((paragraph, idx) => (
-              <p key={idx} className="mb-4">
-                {paragraph}
-              </p>
+        {/* Render paragraphs with corresponding illustrations (if present) */}
+        <div className="space-y-6">
+          {story.content.map((paragraph, idx) => {
+            const imgSrc = story.images && story.images[idx];
+            const imgDesc = story.imagesDescriptions && story.imagesDescriptions[idx];
+
+            return (
+              <Card key={idx} className="p-4 md:p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+                  <div className="md:col-span-2">
+                    <div className="prose prose-invert max-w-none text-left">
+                      <p className="mb-0">{paragraph}</p>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-1 flex flex-col items-center">
+                    {imgSrc ? (
+                      <img
+                        src={imgSrc}
+                        alt={`${story.title} ilustração ${idx + 1}`}
+                        className="w-full h-40 object-cover rounded-md mb-2"
+                      />
+                    ) : (
+                      <div className="w-full h-40 bg-muted rounded-md mb-2 flex items-center justify-center text-sm text-muted-foreground">
+                        Sem ilustração
+                      </div>
+                    )}
+                    {imgDesc && <div className="text-xs text-muted-foreground text-center">{imgDesc}</div>}
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Keep a small gallery fallback for any remaining images not tied to paragraphs */}
+        {story.images && story.images.length > story.content.length && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+            {story.images.slice(story.content.length).map((src, idx) => (
+              <Card key={idx} className="p-4">
+                <img src={src} alt={`${story.title} ilustração extra ${idx + 1}`} className="w-full h-48 object-cover rounded-md" />
+              </Card>
             ))}
           </div>
-        </Card>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {story.images.map((src, idx) => (
-            <Card key={idx} className="p-4">
-              <img src={src} alt={`${story.title} ilustração ${idx + 1}`} className="w-full h-48 object-cover rounded-md" />
-            </Card>
-          ))}
-        </div>
+        )}
       </div>
     </div>
   );
