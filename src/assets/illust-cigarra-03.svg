@@ -1,0 +1,20 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração 03 - Diálogo sob o sol">
+  <defs>
+    <linearGradient id="grad03" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad03)"/>
+  <!-- Cigarra central -->
+  <ellipse cx="360" cy="260" rx="70" ry="34" fill="#8FD050"/>
+  <circle cx="340" cy="245" r="14" fill="#2B2B2B"/>
+  <!-- Formiga ao lado suando -->
+  <rect x="520" y="260" width="80" height="100" rx="12" fill="#4B2E1A"/>
+  <circle cx="492" cy="240" r="16" fill="#2C2C2C"/>
+  <!-- Balão de fala -->
+  <path d="M320,190 q40,-40 120,0" fill="none" stroke="#1F2937" stroke-width="3"/>
+  <text x="340" y="180" font-family="Arial" font-size="20" fill="#1F2937">Cante!</text>
+  <text x="420" y="205" font-family="Arial" font-size="20" fill="#1F2937">Notas musicais</text>
+  <text x="400" y="470" font-family="Arial" font-size="28" text-anchor="middle" fill="#1F2937">Ilustração 03</text>
+</svg>

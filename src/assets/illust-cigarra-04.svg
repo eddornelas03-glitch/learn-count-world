@@ -1,0 +1,19 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração 04 - Guarda o futuro">
+  <defs>
+    <linearGradient id="grad04" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F3F4F6"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad04)"/>
+  <!-- Formiga apontando para o horizonte -->
+  <rect x="520" y="230" width="80" height="120" rx="12" fill="#5A3A22"/>
+  <circle cx="492" cy="210" r="16" fill="#2C2C2C"/>
+  <!-- Pilha de grãos/horizonte -->
+  <rect x="380" y="290" width="90" height="60" rx="6" fill="#D2B48C"/>
+  <!-- Cigarra perto com surpresa -->
+  <ellipse cx="210" cy="260" rx="60" ry="28" fill="#7BD07B"/>
+  <!-- Nuvem sutil de advertência -->
+  <ellipse cx="580" cy="120" rx="120" ry="40" fill="rgba(0,0,0,0.08)"/>
+  <text x="400" y="470" font-family="Arial" font-size="28" text-anchor="middle" fill="#1F2937">Ilustração 04</text>
+</svg>

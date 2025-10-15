@@ -1,0 +1,19 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração 02 - Cigarra convidando a Formiga">
+  <defs>
+    <linearGradient id="grad02" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFC45A"/>
+      <stop offset="100%" stop-color="#F6B12B"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad02)"/>
+  <circle cx="720" cy="90" r="60" fill="#FFD166"/>
+  <!-- Cigarra animada -->
+  <ellipse cx="180" cy="230" rx="70" ry="32" fill="#7BD07B"/>
+  <circle cx="150" cy="215" r="14" fill="#2B2B2B"/>
+  <!-- Formiga curvada sob peso -->
+  <rect x="520" y="260" width="90" height="110" rx="14" fill="#5A3A22"/>
+  <circle cx="490" cy="230" r="16" fill="#2C2C2C"/>
+  <!-- Flores ao redor -->
+  <circle cx="260" cy="320" r="16" fill="#FF6B6B"/>
+  <text x="400" y="470" font-family="Arial" font-size="28" text-anchor="middle" fill="#1F2937">Ilustração 02</text>
+</svg>

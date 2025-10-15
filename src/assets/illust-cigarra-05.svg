@@ -1,0 +1,17 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração 05 - Cigarra rindo no prado">
+  <defs>
+    <linearGradient id="grad05" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad05)"/>
+  <circle cx="700" cy="70" r="50" fill="#FFD166"/>
+  <!-- Cigarra rindo no prado -->
+  <ellipse cx="240" cy="260" rx="68" ry="28" fill="#8FD050"/>
+  <circle cx="210" cy="247" r="14" fill="#2B2B2B"/>
+  <!-- Formiga ao fundo trabalhando -->
+  <rect x="420" y="260" width="80" height="110" rx="12" fill="#5A3A22"/>
+  <circle cx="392" cy="240" r="14" fill="#2C2C2C"/>
+  <text x="400" y="470" font-family="Arial" font-size="28" text-anchor="middle" fill="#1F2937">Ilustração 05</text>
+</svg>
