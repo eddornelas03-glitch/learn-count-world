@@ -6,7 +6,7 @@ import illust05 from "@/assets/illust-cigarra-05.svg";
 import illust06 from "@/assets/illust-cigarra-06.svg";
 import illust07 from "@/assets/illust-cigarra-07.svg";
 import illust08 from "@/assets/illust-cigarra-08.svg";
-import illust09 from "@/assets/illust Cigarra-09.svg";
+import illust09 from "@/assets/illust-cigarra-09.svg";
 import illust10 from "@/assets/illust-cigarra-10.svg";
 import illust11 from "@/assets/illust-cigarra-11.svg";
 import illust12 from "@/assets/illust-cigarra-12.svg";
@@ -35,9 +35,21 @@ export const stories: Story[] = [
     difficulty: "Fácil",
     content: [
       "Em um verão quente e ensolarado, a Cigarra passava os dias cantando, dançando e aproveitando a vida. Enquanto isso, a Formiga trabalhava incansavelmente, carregando grãos e folhas pesadas para armazenar comida para o inverno que se aproximava.",
-      // 12 parágrafos completos (texto exato deve ser adicionado aqui) ...
+      "A Cigarra, vendo o esforço da Formiga, a convidou para se juntar à diversão.",
+      "\"Por que você trabalha tanto?\", perguntou a Cigarra. \"Venha aproveitar o sol e cantar comigo! Há tempo de sobra.\"",
+      "A Formiga, suando debaixo do sol, respondeu: \"Estou guardando comida para o inverno, quando não haverá nada para comer. Você deveria fazer o mesmo.\"",
+      "A Cigarra riu e continuou seu canto, ignorando o aviso. Ela pensava que a Formiga era boba por se preocupar tanto com o futuro, quando o presente era tão agradável.",
+      "O verão acabou e a temperatura começou a cair. A chuva e a neve chegaram, cobrindo o chão e tornando a busca por alimento impossível. A Cigarra, faminta e tremendo de frio, percebeu seu erro. Ela não tinha nenhuma comida e nenhum abrigo.",
+      "Desesperada, ela foi até o formigueiro e bateu na porta. A Formiga, bem alimentada e aquecida, abriu a porta.",
+      "\"Formiga, por favor, me ajude! Estou morrendo de fome e frio\", implorou a Cigarra. \"Me dê um pouco da sua comida.\"",
+      "A Formiga, olhando seriamente para a Cigarra, perguntou: \"O que você fez durante o verão inteiro?\"",
+      "A Cigarra, envergonhada, respondeu: \"Eu cantei e dancei o tempo todo.\"",
+      "A Formiga então respondeu: \"Muito bem. Já que você cantou no verão, agora dance no inverno.\"",
+      "E fechou a porta."
     ],
-    images: [illust01, illust02, illust03, illust04, illust05, illust06, illust07, illust08, illust09, illust10, illust11, illust12],
+    images: [
+      illust01, illust02, illust03, illust04, illust05, illust06, illust07, illust08, illust09, illust10, illust11, illust12
+    ],
     imagesDescriptions: [
       "Parágrafo 1: Cigarra dançando sob o sol; Formiga carregando grãos ao fundo.",
       "Parágrafo 2: Cigarra convidando a Formiga para se juntar à diversão.",
@@ -53,5 +65,5 @@ export const stories: Story[] = [
       "Parágrafo 12: Porta é fechada, inverno chegando."
     ],
   },
-  // ... demais histórias mantidas conforme o conteúdo existente
+  // Demais histórias permanecem conforme o conteúdo existente no projeto
 ];
