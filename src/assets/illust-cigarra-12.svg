@@ -9,7 +9,6 @@
   <rect x="120" y="180" width="180" height="160" rx="14" fill="#8F4A2A"/>
   <rect x="320" y="180" width="60" height="180" rx="6" fill="#6B3F1B"/>
   <circle cx="210" cy="240" r="12" fill="#2C2C2C"/>
-  <!-- Cigarra fora -->
   <circle cx="550" cy="260" r="24" fill="#FFD166"/>
   <text x="400" y="470" font-family="Arial" font-size="28" text-anchor="middle" fill="#1F2937">Ilustração 12</text>
 </svg>

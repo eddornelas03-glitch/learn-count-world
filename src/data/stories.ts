@@ -65,5 +65,5 @@ export const stories: Story[] = [
       "Parágrafo 12: Porta é fechada, inverno chegando."
     ],
   },
-  // Demais histórias permanecem conforme o conteúdo existente no projeto
+  // Restante das histórias permanece conforme o conteúdo existente
 ];
